@@ -104,11 +104,8 @@ t = len(time)
 la = len(lat)
 lo = len(lon)
 #flat multidimension matrix to 1d array
-uwind_flat = uwind.flatten()
-vwind_flat = vwind.flatten()
 #calculate the net wind speed based on wind components using pythagorean theorem
-speed = (uwind_flat**2 + vwind_flat**2)**0.5
-speed = speed.reshape(t,la,lo)
+speed = (uwind**2 + vwind**2)**0.5
 #convert the units of temperature to Degree celsius
 temp = temp-273.15
 #let user input the wind, temperature and preicipitation thresholds
