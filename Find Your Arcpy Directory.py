@@ -1,12 +1,15 @@
 #-------------------------------------------------------------------------------
-# Name:        module1
-# Purpose:
+# Name: Find Your Arcpy Directory 
+
+# Purpose:Locate the directory of your python side package
 #
-# Author:      mozhou.gao
+# Author: ESRI     
 #
-# Created:     22/11/2017
-# Copyright:   (c) mozhou.gao 2017
-# Licence:     <your licence>
+# Source: https://blogs.esri.com/esri/arcgis/2012/09/06/a-simple-approach-for-including-3rd-party-python-libraries-with-your-scripts/
+# Created:     06/09/2017
+# Copyright:   ESRI
+# Input: side package's name 
+# Output: return the input side package' path/directory in your computer 
 #-------------------------------------------------------------------------------
 
 def find_module(modulename, filename=None):

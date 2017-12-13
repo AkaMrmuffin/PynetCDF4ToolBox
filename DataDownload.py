@@ -1,22 +1,39 @@
-
+#--------------------------------------------------------------------
+# Name:ECMWF Data Downloading tool
+# 
+# Author: Mozhou Gao
+# 
+# Created: 03/12/2017
+#
+# Purpose of script:Download the data from different datasets of ECMWF by using ECMWF API 
+#                   more details can be found on https://software.ecmwf.int/wiki/display/WEBAPI/ECMWF+Web+API+Home
+#
+# Inputs:Multiple ECMWF data retriving keys 
+#
+# Outputs:downloaded data
+#
+#--------------------------------------------------------------------
 #!/usr/bin/env python
+#import ECMWFDataServer from ECMWF API
 from ecmwfapi import ECMWFDataServer
 import arcpy
+#connect to the ECMWF server
 server = ECMWFDataServer()
-arcpy.env.workspace = arcpy.GetParameterAsText(0)
-stream_name = arcpy.GetParameterAsText(1)
-levtype = arcpy.GetParameterAsText(2)
-parameter = arcpy.GetParameterAsText(3)
-dataset = arcpy.GetParameterAsText(4)
-step = arcpy.GetParameterAsText(5)
-grid = arcpy.GetParameterAsText(6)
-time = arcpy.GetParameterAsText(7)
-date = arcpy.GetParameterAsText(8)
-datatype = arcpy.GetParameterAsText(9)
-dclass = arcpy.GetParameterAsText(10)
-area = arcpy.GetParameterAsText(11)
-FM = arcpy.GetParameterAsText(12)
-target = arcpy.GetParameterAsText(13)
+#set the arcpy input for each required key
+stream_name = arcpy.GetParameterAsText(0)
+levtype = arcpy.GetParameterAsText(1)
+parameter = arcpy.GetParameterAsText(2)
+dataset = arcpy.GetParameterAsText(3)
+step = arcpy.GetParameterAsText(4)
+grid = arcpy.GetParameterAsText(5)
+time = arcpy.GetParameterAsText(6)
+date = arcpy.GetParameterAsText(7)
+datatype = arcpy.GetParameterAsText(8)
+dclass = arcpy.GetParameterAsText(9)
+area = arcpy.GetParameterAsText(10)
+FM = arcpy.GetParameterAsText(11)
+target = arcpy.GetParameterAsText(12)
+#retrive the data based on the inputs
 server.retrieve({
     'stream'    : stream_name,
     'levtype'   : levtype,
